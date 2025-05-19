@@ -1,6 +1,5 @@
-// screens/CameraScreen.js
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, Alert } from 'react-native';
+import { ScrollView, View, Text, TouchableOpacity, StyleSheet, Alert } from 'react-native';
 import { doc, updateDoc, increment } from 'firebase/firestore';
 import { db } from '../firebase';
 import { CATEGORIES, useAuth } from '../context/AuthProvider';
@@ -35,7 +34,7 @@ export default function CameraScreen() {
     };
 
     return (
-        <View style={styles.container}>
+        <ScrollView contentContainerStyle={styles.container}>
             <Text style={styles.title}>📸  Mock Camera</Text>
             <Text style={styles.sub}>
                 Tap a material to “pretend-scan” it. Stats & database will
@@ -62,14 +61,27 @@ export default function CameraScreen() {
                     </Text>
                 ))}
             </View>
-        </View>
+        </ScrollView>
     );
 }
 
 const styles = StyleSheet.create({
-    container: { flex: 1, padding: 24, alignItems: 'center' },
-    title: { fontSize: 28, fontWeight: '700', marginTop: 24 },
-    sub: { textAlign: 'center', marginVertical: 16, color: '#555' },
+    container: {
+        flexGrow: 1,
+        padding: 24,
+        alignItems: 'center',
+        backgroundColor: '#fff',
+    },
+    title: {
+        fontSize: 28,
+        fontWeight: '700',
+        marginTop: 24,
+    },
+    sub: {
+        textAlign: 'center',
+        marginVertical: 16,
+        color: '#555',
+    },
 
     btn: {
         width: '100%',
@@ -78,9 +90,23 @@ const styles = StyleSheet.create({
         backgroundColor: '#1e90ff',
         marginBottom: 12,
     },
-    btnText: { color: '#fff', textAlign: 'center', fontSize: 16 },
+    btnText: {
+        color: '#fff',
+        textAlign: 'center',
+        fontSize: 16,
+    },
 
-    stats: { marginTop: 24, width: '100%' },
-    statTitle: { fontSize: 20, fontWeight: '600', marginBottom: 8 },
-    stat: { fontSize: 16, marginBottom: 4 },
+    stats: {
+        marginTop: 24,
+        width: '100%',
+    },
+    statTitle: {
+        fontSize: 20,
+        fontWeight: '600',
+        marginBottom: 8,
+    },
+    stat: {
+        fontSize: 16,
+        marginBottom: 4,
+    },
 });

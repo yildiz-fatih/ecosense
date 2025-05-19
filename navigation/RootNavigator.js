@@ -22,6 +22,8 @@ function Tabs() {
         <Tab.Navigator
             screenOptions={({ route }) => ({
                 headerShown: false,
+                tabBarActiveTintColor: '#2e7d32',
+                tabBarInactiveTintColor: '#888',
                 tabBarIcon: ({ color, size }) => {
                     const icons = {
                         Home: 'home',

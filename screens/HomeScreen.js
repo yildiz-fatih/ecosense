@@ -7,7 +7,6 @@ export default function HomeScreen() {
     return (
         <View style={styles.container}>
             <Text style={styles.text}>Hello, {user?.username} 👋</Text>
-            <Text style={styles.sub}>Ready to recycle something?</Text>
         </View>
     );
 }
